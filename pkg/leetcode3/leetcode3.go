@@ -5,12 +5,13 @@ func Solve(s string) int {
 	maxLen := 0
 	visited := make(map[rune]int, len(s)-1)
 	currentLen := 0
+	indexStart := 0
 	for index, char := range s {
 		if matchedIndex, ok := visited[char]; ok {
-			for k, v := range visited {
-				if v <= matchedIndex {
-					delete(visited, k)
-				}
+			for indexStart <= matchedIndex {
+				keyToRemove := s[indexStart]
+				delete(visited, rune(keyToRemove))
+				indexStart++
 			}
 			currentLen = index - (matchedIndex + 1)
 		}
