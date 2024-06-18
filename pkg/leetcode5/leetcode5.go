@@ -28,9 +28,13 @@ func Solve(s string) string {
 	longestPalindrome := s[0:1]
 	longestPalindromeLength := 0
 	for i := 1; i < sLength; i++ {
-		for j := 0; j < i; j++ {
-			word := s[j : i+1]
-			wordLength := len(word)
+		end := i + 1
+		for start := 0; start < i; start++ {
+			wordLength := end - start
+			if wordLength < longestPalindromeLength {
+				continue
+			}
+			word := s[start:end]
 			if isPalindrome(word, wordLength) {
 				if wordLength > longestPalindromeLength {
 					longestPalindrome = word
