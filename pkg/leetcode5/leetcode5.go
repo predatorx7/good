@@ -25,9 +25,9 @@ func Solve(s string) string {
 	if sLength == 0 {
 		return ""
 	}
-	longestPalindrome := s[0:1]
-	longestPalindromeLength := 0
-	for i := 1; i < sLength; i++ {
+	var longestPalindrome string
+	var longestPalindromeLength int
+	for i := 0; i < sLength; i++ {
 		end := i + 1
 		for start := 0; start < i; start++ {
 			wordLength := end - start
