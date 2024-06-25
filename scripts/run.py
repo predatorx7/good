@@ -4,7 +4,7 @@
 import os
 import utils
 
-CMD=utils.get_cmd()
+CMD = utils.get_cmd()
 
 PYTHON_CMD = utils.for_nt_or('python', 'python3')
 
